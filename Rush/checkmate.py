@@ -2,17 +2,19 @@
 
 # Check for square board?
 def checkmate(board):
+
+    board = board.upper() 
     row = board.splitlines() #แยกstringหลายบรรทัดเป็นลิสต์
-    n = len(row) #เก็บจำนวนแถว
+    n = len(row)
     
     if n == 0: #ไม่มีแถว กระดานว่าง
         print("Blank board")
         return
     
-    #check for board crash
-    for r in range(n): #วนทุกแถวว่า  n*n?
-        if len(row[r]) != n: #ไม่ใช่ n*n
-            print("Invalid board") #ไม่เป็นตารางจัตุรัส
+    #check for invalid board
+    for r in range(n):
+        if len(row[r]) != n: 
+            print("Invalid board") 
             return
         
 #find king
@@ -29,7 +31,9 @@ def checkmate(board):
                 kr = r
                 kc = c
 
-    if kr == -1: #ไม่เจอ k
+    #check for invalid king ไม่เกิน 1 หรือไม่มี
+    if c != 1:
+        print("Invalid king")
         return
     
     #Limit board 
