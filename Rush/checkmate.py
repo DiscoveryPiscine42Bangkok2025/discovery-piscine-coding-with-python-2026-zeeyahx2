@@ -22,17 +22,18 @@ def checkmate(board):
     #set เมื่อยังไม่เจอ king
     kr = -1
     kc = -1
-    c = 0
+    count = 0
 
     #วนแถวกับคอลัมน์ 0-(n-1)
     for r in range(n):
         for c in range(n):
             if row[r][c] == 'K':
+                count+=1
                 kr = r
                 kc = c
 
     #check for invalid king ไม่เกิน 1 หรือไม่มี
-    if c != 1:
+    if count != 1:
         print("Invalid king")
         return
     
